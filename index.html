@@ -1,0 +1,968 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Happy 20th, Nursyifa ♡</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+body {
+    font-family: Georgia, "Times New Roman", serif;
+    background: #dcecf7;
+    color: #405b70;
+}
+
+/* ================= SLIDE ================= */
+
+.slide {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+
+    display: none;
+    align-items: center;
+    justify-content: center;
+
+    overflow: hidden;
+}
+
+.slide.active {
+    display: flex;
+    animation: fade 0.7s ease;
+}
+
+@keyframes fade {
+    from {
+        opacity: 0;
+        transform: scale(1.03);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* ================= BACKGROUND ================= */
+
+.slide::before {
+    content: "";
+    position: absolute;
+
+    width: 450px;
+    height: 450px;
+
+    border-radius: 50%;
+
+    background: rgba(255,255,255,0.4);
+
+    filter: blur(70px);
+
+    top: -180px;
+    left: -100px;
+}
+
+.slide::after {
+    content: "";
+    position: absolute;
+
+    width: 400px;
+    height: 400px;
+
+    border-radius: 50%;
+
+    background: rgba(255,255,255,0.3);
+
+    filter: blur(70px);
+
+    right: -150px;
+    bottom: -150px;
+}
+
+/* ================= DEKORASI ================= */
+
+.decor {
+    position: absolute;
+    z-index: 2;
+
+    pointer-events: none;
+
+    animation: float 4s ease-in-out infinite;
+}
+
+.snoopy-left {
+    width: 110px;
+    left: 6%;
+    bottom: 8%;
+}
+
+.snoopy-right {
+    width: 95px;
+    right: 7%;
+    top: 8%;
+}
+
+.hirono-left {
+    width: 80px;
+    left: 5%;
+    top: 12%;
+}
+
+.hirono-right {
+    width: 80px;
+    right: 5%;
+    bottom: 10%;
+}
+
+@keyframes float {
+
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-12px);
+    }
+}
+
+/* ================= OPENING ================= */
+
+.opening {
+    position: relative;
+    z-index: 5;
+
+    width: min(620px, 88vw);
+
+    padding: 45px 35px;
+
+    text-align: center;
+
+    background: rgba(255,255,255,0.65);
+
+    backdrop-filter: blur(15px);
+
+    border-radius: 30px;
+
+    box-shadow: 0 20px 50px rgba(70,100,120,0.15);
+}
+
+.opening-small {
+    font-size: 14px;
+    letter-spacing: 4px;
+    color: #7b91a3;
+    margin-bottom: 10px;
+}
+
+.opening h1 {
+    font-size: clamp(45px, 7vw, 75px);
+    margin-bottom: 8px;
+}
+
+.opening h2 {
+    font-size: clamp(15px, 2vw, 21px);
+    letter-spacing: 5px;
+    color: #7891a3;
+}
+
+.opening-snoopy {
+    width: 150px;
+    height: 150px;
+
+    object-fit: contain;
+
+    margin: 15px auto;
+}
+
+.opening-text {
+    color: #607687;
+    line-height: 1.7;
+    margin-bottom: 25px;
+}
+
+/* ================= BUTTON ================= */
+
+.open-button {
+    padding: 14px 28px;
+
+    border: none;
+    border-radius: 30px;
+
+    background: #7898ae;
+    color: white;
+
+    font-family: Georgia, serif;
+    font-size: 15px;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+.open-button:hover {
+    transform: translateY(-3px);
+    background: #607f95;
+}
+
+/* ================= PHOTO ================= */
+
+.photo-page {
+    flex-direction: column;
+}
+
+.page-heading {
+    position: relative;
+    z-index: 5;
+
+    text-align: center;
+
+    margin-bottom: 15px;
+}
+
+.page-heading small {
+    color: #7d94a6;
+    letter-spacing: 3px;
+}
+
+.page-heading h2 {
+    font-size: 34px;
+    margin-top: 5px;
+}
+
+.photo-board {
+    position: relative;
+
+    width: min(850px, 90vw);
+    height: 65vh;
+
+    z-index: 5;
+}
+
+/* FOTO UTAMA */
+
+.main-photo {
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    transform: translate(-50%, -50%) rotate(-2deg);
+
+    width: 260px;
+    height: 315px;
+
+    padding: 12px 12px 45px;
+
+    background: white;
+
+    box-shadow: 0 15px 35px rgba(50,70,90,0.22);
+
+    z-index: 10;
+}
+
+.main-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* POLAROID */
+
+.polaroid {
+    position: absolute;
+
+    width: 145px;
+    height: 175px;
+
+    padding: 8px 8px 30px;
+
+    background: white;
+
+    box-shadow: 0 10px 25px rgba(50,70,90,0.18);
+}
+
+.polaroid img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.photo1 {
+    left: 5%;
+    top: 5%;
+    transform: rotate(-9deg);
+}
+
+.photo2 {
+    right: 5%;
+    top: 5%;
+    transform: rotate(8deg);
+}
+
+.photo3 {
+    left: 9%;
+    bottom: 2%;
+    transform: rotate(7deg);
+}
+
+.photo4 {
+    right: 9%;
+    bottom: 2%;
+    transform: rotate(-8deg);
+}
+
+/* ================= VIDEO ================= */
+
+.video-page {
+    flex-direction: column;
+}
+
+.video-heading {
+    position: relative;
+    z-index: 5;
+
+    text-align: center;
+
+    margin-bottom: 20px;
+}
+
+.video-heading small {
+    letter-spacing: 3px;
+    color: #7c93a5;
+}
+
+.video-heading h2 {
+    font-size: 30px;
+    margin-top: 8px;
+}
+
+.video-container {
+    position: relative;
+    z-index: 5;
+
+    width: min(700px, 85vw);
+
+    padding: 12px;
+
+    background: white;
+
+    border-radius: 20px;
+
+    box-shadow: 0 15px 35px rgba(50,70,90,0.2);
+}
+
+.video-container video {
+    display: block;
+
+    width: 100%;
+    max-height: 58vh;
+
+    border-radius: 13px;
+}
+
+/* ================= PESAN ================= */
+
+.message-page {
+    flex-direction: column;
+}
+
+.letter {
+    position: relative;
+    z-index: 5;
+
+    width: min(650px, 85vw);
+
+    padding: 45px 50px;
+
+    text-align: center;
+
+    background: rgba(255,255,255,0.7);
+
+    backdrop-filter: blur(12px);
+
+    border-radius: 28px;
+
+    box-shadow: 0 15px 35px rgba(50,70,90,0.15);
+}
+
+.letter h2 {
+    font-size: 34px;
+    margin-bottom: 25px;
+}
+
+.letter p {
+    font-size: 16px;
+    line-height: 1.8;
+    color: #5d7181;
+}
+
+.letter-ending {
+    margin-top: 25px;
+    font-style: italic;
+}
+
+/* ================= ENDING ================= */
+
+.end-page {
+    flex-direction: column;
+    text-align: center;
+}
+
+.end-snoopy {
+    width: 170px;
+    margin-bottom: 15px;
+}
+
+.end-page h1 {
+    font-size: clamp(40px, 6vw, 65px);
+}
+
+.end-page p {
+    margin-top: 12px;
+    color: #71889a;
+}
+
+/* ================= NAVIGASI ================= */
+
+.navigation {
+    position: fixed;
+
+    z-index: 100;
+
+    left: 50%;
+    bottom: 22px;
+
+    transform: translateX(-50%);
+
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.nav-button {
+    width: 44px;
+    height: 44px;
+
+    border: none;
+    border-radius: 50%;
+
+    background: rgba(255,255,255,0.8);
+
+    color: #526f85;
+
+    font-size: 22px;
+
+    cursor: pointer;
+}
+
+.dots {
+    display: flex;
+    gap: 6px;
+}
+
+.dot {
+    width: 7px;
+    height: 7px;
+
+    border-radius: 10px;
+
+    background: rgba(80,110,130,0.3);
+}
+
+.dot.active {
+    width: 20px;
+    background: #607f95;
+}
+
+/* ================= TOMBOL MUSIK ================= */
+
+.music-button {
+    position: fixed;
+
+    right: 20px;
+    bottom: 20px;
+
+    z-index: 200;
+
+    width: 43px;
+    height: 43px;
+
+    border: none;
+    border-radius: 50%;
+
+    background: rgba(255,255,255,0.85);
+
+    color: #526f85;
+
+    font-size: 18px;
+
+    cursor: pointer;
+
+    box-shadow: 0 5px 15px rgba(50,70,90,0.15);
+}
+
+/* ================= MOBILE ================= */
+
+@media (max-width: 600px) {
+
+    .opening {
+        padding: 35px 25px;
+    }
+
+    .opening-snoopy {
+        width: 120px;
+        height: 120px;
+    }
+
+    .snoopy-left,
+    .snoopy-right {
+        width: 65px;
+    }
+
+    .hirono-left,
+    .hirono-right {
+        width: 55px;
+    }
+
+    .main-photo {
+        width: 180px;
+        height: 225px;
+    }
+
+    .polaroid {
+        width: 95px;
+        height: 120px;
+
+        padding: 5px 5px 20px;
+    }
+
+    .page-heading h2 {
+        font-size: 27px;
+    }
+
+    .video-heading h2 {
+        font-size: 24px;
+    }
+
+    .letter {
+        padding: 32px 24px;
+    }
+
+    .letter h2 {
+        font-size: 27px;
+    }
+
+    .letter p {
+        font-size: 14px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- ================= MUSIK ================= -->
+
+<audio id="bgMusic" loop>
+    <source src="images/Nadin.mp3" type="audio/mpeg">
+</audio>
+
+
+<!-- ================= SLIDE 1 ================= -->
+
+<div class="slide active">
+
+    <img
+        class="decor hirono-left"
+        src="images/hirono.jpeg"
+    >
+
+    <img
+        class="decor snoopy-right"
+        src="images/snoopy2.jpeg"
+    >
+
+    <div class="opening">
+
+        <div class="opening-small">
+            a little something for
+        </div>
+
+        <h1>Nursyifa ♡</h1>
+
+        <h2>HAPPY 20TH BIRTHDAY</h2>
+
+        <img
+            class="opening-snoopy"
+            src="images/snoopy.jpg"
+        >
+
+        <p class="opening-text">
+            Another year, another little chapter.<br>
+            I hope this one will be a beautiful one for you. ♡
+        </p>
+
+        <button
+            class="open-button"
+            onclick="openGift()"
+        >
+            Open your gift 🎁
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- ================= SLIDE 2 ================= -->
+
+<div class="slide photo-page">
+
+    <img
+        class="decor snoopy-left"
+        src="images/snoopy.jpg"
+    >
+
+    <img
+        class="decor hirono-right"
+        src="images/hirono2.jpeg"
+    >
+
+    <div class="page-heading">
+
+        <small>
+            a few little memories
+        </small>
+
+        <h2>
+            Little Memories ♡
+        </h2>
+
+    </div>
+
+    <div class="photo-board">
+
+        <div class="main-photo">
+            <img src="images/SIPOK.jpeg">
+        </div>
+
+        <div class="polaroid photo1">
+            <img src="images/AMS.jpeg">
+        </div>
+
+        <div class="polaroid photo2">
+            <img src="images/IMS.jpeg">
+        </div>
+
+        <div class="polaroid photo3">
+            <img src="images/MNS.jpeg">
+        </div>
+
+        <div class="polaroid photo4">
+            <img src="images/MS.jpeg">
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- ================= SLIDE 3 ================= -->
+
+<div class="slide video-page">
+
+    <img
+        class="decor snoopy-left"
+        src="images/snoopy2.jpeg"
+    >
+
+    <img
+        class="decor hirono-right"
+        src="images/hirono.jpeg"
+    >
+
+    <div class="video-heading">
+
+        <small>
+            a little something caught on camera
+        </small>
+
+        <h2>
+            Sedikit video tidak sengaja terekam... ♡
+        </h2>
+
+    </div>
+
+    <div class="video-container">
+
+        <video controls>
+
+            <source
+                src="images/SIPOK.mp4"
+                type="video/mp4"
+            >
+
+            Browser kamu tidak mendukung video.
+
+        </video>
+
+    </div>
+
+</div>
+
+
+<!-- ================= SLIDE 4 ================= -->
+
+<div class="slide message-page">
+
+    <img
+        class="decor snoopy-right"
+        src="images/snoopy.jpg"
+    >
+
+    <div class="letter">
+
+        <h2>
+            For You, Nursyifa ♡
+        </h2>
+
+        <p>
+
+            Selamat ulang tahun yang ke-20, Nursyifa! 🎂
+
+            <br><br>
+
+            Semoga di umur yang baru ini,
+            kamu selalu dikelilingi hal-hal baik,
+            orang-orang baik, dan banyak alasan
+            untuk tersenyum.
+
+            <br><br>
+
+            Semoga semua hal yang kamu impikan
+            perlahan bisa tercapai.
+            Jangan lupa untuk tetap menikmati
+            setiap proses dan perjalananmu.
+
+            <br><br>
+
+            Twenty looks good on you. ♡
+
+        </p>
+
+        <p class="letter-ending">
+            Happy 20th, Nursyifa ♡
+        </p>
+
+    </div>
+
+</div>
+
+
+<!-- ================= SLIDE 5 ================= -->
+
+<div class="slide end-page">
+
+    <img
+        class="end-snoopy"
+        src="images/snoopy.jpg"
+    >
+
+    <h1>
+        Happy 20th, Nursyifa ♡
+    </h1>
+
+    <p>
+        May your 20s be full of beautiful things.
+    </p>
+
+</div>
+
+
+<!-- ================= NAVIGASI ================= -->
+
+<div class="navigation">
+
+    <button
+        class="nav-button"
+        onclick="previousSlide()"
+    >
+        ‹
+    </button>
+
+    <div class="dots">
+
+        <span class="dot active"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+
+    </div>
+
+    <button
+        class="nav-button"
+        onclick="nextSlide()"
+    >
+        ›
+    </button>
+
+</div>
+
+
+<!-- ================= TOMBOL MUSIK ================= -->
+
+<button
+    class="music-button"
+    id="musicButton"
+    onclick="toggleMusic()"
+>
+    ♫
+</button>
+
+
+<script>
+
+/* =========================
+   SLIDE
+========================= */
+
+let currentSlide = 0;
+
+const slides =
+    document.querySelectorAll(".slide");
+
+const dots =
+    document.querySelectorAll(".dot");
+
+const music =
+    document.getElementById("bgMusic");
+
+const musicButton =
+    document.getElementById("musicButton");
+
+
+function showSlide(index) {
+
+    if (index < 0) {
+        index = slides.length - 1;
+    }
+
+    if (index >= slides.length) {
+        index = 0;
+    }
+
+    slides.forEach(function(slide) {
+        slide.classList.remove("active");
+    });
+
+    dots.forEach(function(dot) {
+        dot.classList.remove("active");
+    });
+
+    currentSlide = index;
+
+    slides[currentSlide].classList.add("active");
+    dots[currentSlide].classList.add("active");
+}
+
+
+/* =========================
+   OPEN GIFT + MUSIK
+========================= */
+
+function openGift() {
+
+    music.volume = 0.7;
+
+    music.currentTime = 0;
+
+    music.play();
+
+    showSlide(1);
+
+    musicButton.innerHTML = "♫";
+}
+
+
+/* =========================
+   NEXT
+========================= */
+
+function nextSlide() {
+
+    showSlide(currentSlide + 1);
+
+}
+
+
+/* =========================
+   PREVIOUS
+========================= */
+
+function previousSlide() {
+
+    showSlide(currentSlide - 1);
+
+}
+
+
+/* =========================
+   PLAY / PAUSE MUSIK
+========================= */
+
+function toggleMusic() {
+
+    if (music.paused) {
+
+        music.play();
+
+        musicButton.innerHTML = "♫";
+
+    } else {
+
+        music.pause();
+
+        musicButton.innerHTML = "🔇";
+
+    }
+
+}
+
+
+/* =========================
+   KEYBOARD
+========================= */
+
+document.addEventListener(
+    "keydown",
+    function(event) {
+
+        if (event.key === "ArrowRight") {
+            nextSlide();
+        }
+
+        if (event.key === "ArrowLeft") {
+            previousSlide();
+        }
+
+    }
+);
+
+</script>
+
+</body>
+</html>
